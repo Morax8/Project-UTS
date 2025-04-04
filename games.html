@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ucup Survive the Semester</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="bg-gray-900 text-white">
+    <!-- Game container -->
+    <div class="container mx-auto px-4 py-6 max-w-4xl">
+      <!-- Header section with player info -->
+      <div class="flex justify-between items-center mb-4">
+        <div class="flex items-center space-x-4">
+          <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-xl" id="player-avatar"> 👨‍🎓 </div>
+          <div>
+            <h3 class="font-bold text-lg" id="playerNameDisplay"></h3>
+            <div class="text-sm text-gray-300">Mahasiswa Semester 1</div>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-4">
+          <div class="time-display">
+            <i class="fas fa-clock mr-2"></i>
+            <span id="time-display">Hari 1, 08:00</span>
+          </div>
+          <div class="money-display">
+            <i class="fas fa-coins mr-2"></i>
+            <span id="money-display">Rp 500.000</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Status bars -->
+      <div class="bg-gray-800 rounded-lg p-4 mb-6">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
+          <!-- Health -->
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span>Health</span>
+              <span id="health-value">100%</span>
+            </div>
+            <div class="status-bar">
+              <div id="health-fill" class="status-fill health-fill" style="width: 100%"></div>
+            </div>
+          </div>
+
+          <!-- Energy -->
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span>Energy</span>
+              <span id="energy-value">100%</span>
+            </div>
+            <div class="status-bar">
+              <div id="energy-fill" class="status-fill energy-fill" style="width: 100%"></div>
+            </div>
+          </div>
+
+          <!-- Hunger -->
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span>Hunger</span>
+              <span id="hunger-value">100%</span>
+            </div>
+            <div class="status-bar">
+              <div id="hunger-fill" class="status-fill hunger-fill" style="width: 100%"></div>
+            </div>
+          </div>
+
+          <!-- Hygiene -->
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span>Hygiene</span>
+              <span id="hygiene-value">100%</span>
+            </div>
+            <div class="status-bar">
+              <div id="hygiene-fill" class="status-fill hygiene-fill" style="width: 100%"></div>
+            </div>
+          </div>
+
+          <!-- Happiness -->
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span>Happiness</span>
+              <span id="happiness-value">100%</span>
+            </div>
+            <div class="status-bar">
+              <div id="happiness-fill" class="status-fill happiness-fill" style="width: 100%"></div>
+            </div>
+          </div>
+
+          <!-- Knowledge -->
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span>Knowledge</span>
+              <span id="knowledge-value">0%</span>
+            </div>
+            <div class="status-bar">
+              <div id="knowledge-fill" class="status-fill knowledge-fill" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game Canvas (Map + Player) -->
+      <div class="flex justify-center mb-6">
+        <canvas id="gameCanvas" width="640" height="480" class="bg-gray-800 rounded-lg shadow-md"></canvas>
+      </div>
+
+      <!-- Current location -->
+      <div class="mb-6">
+        <h2 class="text-xl font-bold mb-3">Lokasi Saat Ini</h2>
+        <div id="location-display" class="location bg-gray-700" style="background-image: url('assets/images/locations/kost.jpeg')">
+          <div class="location-name">Kost/Rumah</div>
+        </div>
+      </div>
+
+      <!-- Activities -->
+      <div class="mb-6">
+        <h2 class="text-xl font-bold mb-3">Aktivitas</h2>
+        <div id="activities-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <!-- Activities will be added dynamically by JS -->
+        </div>
+      </div>
+
+      <!-- Locations navigation -->
+      <div>
+        <h2 class="text-xl font-bold mb-3">Pindah Lokasi</h2>
+        <div id="locations-nav" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+          <!-- Location buttons will be added dynamically by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Event notification -->
+    <div id="event-container" class="event-notification hidden">
+      <div class="font-bold mb-1" id="event-title">Event Title</div>
+      <div id="event-message">Event message details will appear here.</div>
+    </div>
+
+    <!-- Game over modal -->
+    <div id="game-over-screen" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-50">
+      <div class="bg-gray-800 p-8 rounded-lg max-w-md w-full text-center">
+        <h1 class="text-3xl font-bold mb-2">Game Over!</h1>
+        <p id="game-over-reason" class="mb-4">Reason for game over</p>
+        <div class="mb-6">
+          <p>Kamu bertahan selama: <span id="days-survived" class="font-bold">0</span> hari</p>
+          <p class="mt-2">Pengetahuan yang didapat: <span id="final-knowledge" class="font-bold">0%</span></p>
+        </div>
+        <button id="restart-game-btn" class="bg-gradient-to-r from-red-500 to-red-700 py-3 px-6 rounded-lg w-full shadow-md hover:scale-105 transition-all"> Main Lagi </button>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/game.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+        <script src="js/events.js"></script>
+        <script src="js/locations.js"></script>
+        <script src="js/player.js"></script>
+        <script src="JS/main.js"></script>
+        <script src="js/ui.js"></script>
+        <script src="js/utils.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+  </body>
+</html>
