@@ -1,0 +1,11 @@
+/* Prevent body scrollbar shift */
+body.swal2-shown {
+  overflow-y: auto !important;
+  padding-right: 0 !important;
+}
+
+/* Ensure modal is centered and doesn't affect page layout */
+.swal2-container {
+  position: fixed !important;
+  z-index: 9999 !important;
+}
