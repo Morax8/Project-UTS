@@ -5,23 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game Landing Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      /* Prevent body scrollbar shift */
-      body.swal2-shown {
-        overflow-y: auto !important;
-        padding-right: 0 !important;
-      }
-
-      /* Ensure modal is centered and doesn't affect page layout */
-      .swal2-container {
-        position: fixed !important;
-        z-index: 9999 !important;
-      }
-    </style>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body class="h-screen w-screen overflow-hidden text-white relative">
     <!-- Background -->
-    <img src="images/preview.gif" alt="" class="absolute inset-0 w-full h-full object-cover brightness-50 -z-10" />
+    <img src="assets/images/ui/preview.gif" alt="" class="absolute inset-0 w-full h-full object-cover brightness-50 -z-10" />
 
     <!-- Container -->
     <div class="flex items-center justify-center h-full">
@@ -50,21 +38,21 @@
             <div class="flex transition-transform duration-300 ease-in-out" id="carouselInner">
               <!-- Warrior Character -->
               <div class="character-slide w-full flex-shrink-0 flex flex-col items-center" data-character="warrior">
-                <img src="images/char1.png" alt="Warrior" class="w-64 h-64 object-contain mb-4" />
+                <img src="assets/images/avatar/char1.png" alt="Warrior" class="w-64 h-64 object-contain mb-4" />
                 <h3 class="text-xl font-semibold">Warrior</h3>
                 <p class="text-gray-300 text-center max-w-xs mt-2">A strong melee fighter with high defense and powerful close-combat skills.</p>
               </div>
 
               <!-- Mage Character -->
               <div class="character-slide w-full flex-shrink-0 hidden flex-col items-center" data-character="mage">
-                <img src="images/mage.png" alt="Mage" class="w-64 h-64 object-contain mb-4" />
+                <img src="assets/images/mage.png" alt="Mage" class="w-64 h-64 object-contain mb-4" />
                 <h3 class="text-xl font-semibold">Mage</h3>
                 <p class="text-gray-300 text-center max-w-xs mt-2">A magic user with powerful ranged spells and elemental abilities.</p>
               </div>
 
               <!-- Archer Character -->
               <div class="character-slide w-full flex-shrink-0 hidden flex-col items-center" data-character="archer">
-                <img src="images/archer.png" alt="Archer" class="w-64 h-64 object-contain mb-4" />
+                <img src="assets/images/archer.png" alt="Archer" class="w-64 h-64 object-contain mb-4" />
                 <h3 class="text-xl font-semibold">Archer</h3>
                 <p class="text-gray-300 text-center max-w-xs mt-2">A precise ranged attacker with high mobility and critical hit potential.</p>
               </div>
@@ -102,7 +90,7 @@
         </div>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script src="js/main.js"></script>
     <!-- Sweetalert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
