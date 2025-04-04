@@ -9,3 +9,238 @@ body.swal2-shown {
   position: fixed !important;
   z-index: 9999 !important;
 }
+
+/* Base styles for the game */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Game theme colors - can be customized */
+  --primary-color: #10b981;
+  --primary-dark: #059669;
+  --secondary-color: #3b82f6;
+  --text-color: #f3f4f6;
+  --bg-dark: #1f2937;
+  --bg-darker: #111827;
+  --accent-color: #f59e0b;
+
+  /* Status bars colors */
+  --health-color: #ef4444;
+  --energy-color: #f59e0b;
+  --hunger-color: #8b5cf6;
+  --hygiene-color: #3b82f6;
+  --happiness-color: #ec4899;
+  --knowledge-color: #10b981;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-dark);
+}
+
+/* Section transitions */
+.section {
+  transition: all 0.5s ease-in-out;
+  opacity: 1;
+}
+
+.section.hidden {
+  display: none !important;
+  opacity: 0;
+}
+
+/* Game status bars */
+.status-bar {
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.status-bar-label {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10px;
+  font-weight: 500;
+  color: white;
+  z-index: 2;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.status-bar-value {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10px;
+  font-weight: 500;
+  color: white;
+  z-index: 2;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.status-fill {
+  height: 100%;
+  transition: width 0.3s ease-out;
+}
+
+.health-fill {
+  background-color: var(--health-color);
+}
+.energy-fill {
+  background-color: var(--energy-color);
+}
+.hunger-fill {
+  background-color: var(--hunger-color);
+}
+.hygiene-fill {
+  background-color: var(--hygiene-color);
+}
+.happiness-fill {
+  background-color: var(--happiness-color);
+}
+.knowledge-fill {
+  background-color: var(--knowledge-color);
+}
+
+/* Location styling */
+.location {
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 150px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.location:hover {
+  transform: translateY(-2px);
+}
+
+.location-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  font-weight: 600;
+}
+
+/* Activity buttons */
+.activity-btn {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.activity-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.activity-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.activity-btn .icon {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.activity-cost {
+  margin-left: auto;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* Events styling */
+.event-notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  padding: 12px 20px;
+  border-radius: 8px;
+  border-left: 4px solid var(--accent-color);
+  z-index: 100;
+  animation: slideDown 0.5s forwards;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideDown {
+  from {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+/* Time display */
+.time-display {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+}
+
+.time-display svg {
+  margin-right: 6px;
+}
+
+/* Money display */
+.money-display {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  color: #fbbf24;
+}
+
+.money-display svg {
+  margin-right: 6px;
+  color: #fbbf24;
+}
+
+/* Character select styling */
+.character-slide {
+  padding: 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.character-slide:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
