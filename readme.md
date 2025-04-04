@@ -23,43 +23,43 @@ Game: "Ucup Survive the Semester"
 Ucup harus bertahan selama satu semester dengan mengelola kesehatan, energi, kebersihan, dan keuangannya, sambil tetap menikmati hidup sebagai mahasiswa.
 
 1. Gameplay & Aturan
-   • Awal Permainan: Pemain memilih avatar dan memasukkan nama sebelum memulai semester.
-   • Status Bar:
-   o Health: Menurun jika, lapar, atau tidak menjaga kebersihan.
-   o Energy: Berkurang jika bergerak atau belajar terlalu lama.
-   o Hunger: Berkurang setiap beberapa detik, bisa dipulihkan dengan makan.
-   o Hygiene: Menurun setelah beraktivitas dan bisa dipulihkan dengan mandi.
-   o Happiness: Naik jika melakukan aktivitas menyenangkan.
-   o Money: Dimulai dengan Rp500.000, digunakan untuk makan, hiburan, dan kebutuhan lain.
+   Awal Permainan: Pemain memilih avatar dan memasukkan nama sebelum memulai semester.
+   Status Bar:
+   • Health: Menurun jika, lapar, atau tidak menjaga kebersihan.
+   • Energy: Berkurang jika bergerak atau belajar terlalu lama.
+   • Hunger: Berkurang setiap beberapa detik, bisa dipulihkan dengan makan.
+   • Hygiene: Menurun setelah beraktivitas dan bisa dipulihkan dengan mandi.
+   • Happiness: Naik jika melakukan aktivitas menyenangkan.
+   • Money: Dimulai dengan Rp500.000, digunakan untuk makan, hiburan, dan kebutuhan lain.
 
 2. Lokasi & Aktivitas
-   • 🏛 Kampus
-   o Belajar (+10 Knowledge, -10 Energy)
-   o Ngumpul sama teman (+5 Happiness, -5 Energy)
-   • 🏠 Kost/Rumah
-   o Tidur (+30 Energy, -10 Hunger)
-   o Mandi (+10 Hygiene)
-   o Nonton TV (+5 Happiness, -Rp5.000)
-   o Cuci tangan (+5 hygiene)
-   • 🍛 Kantin
-   o Makan (+20 Hunger, -Rp15.000)
-   • 🛒 Minimarket
-   o Beli makanan (+20 Hunger, -Rp10.000)
-   • ☕ Café
-   o Nongkrong (+5 Happiness, -Rp25.000)
-   • 💼 Tempat Kerja Part-time
-   o Kerja (+Rp100.000, -20 Energy)
-   • ⛪ Tempat Ibadah
-   o Beribadah (+10 Happiness, +5 Hygiene)
-   • 🏖 Pantai
-   o Bermain air (+15 Happiness, -10 Energy, -5 Hygiene)
-   o Makan seafood (+20 Hunger, -Rp30.000)
-   • ⛰ Gunung
-   o Hiking (+10 Happiness, -20 Energy, -10 Hunger)
-   o Camping (+5 Happiness, -Rp50.000)
-   • 🏞 Danau
-   o Bersantai (+10 Happiness, -5 Energy)
-   o Mancing (+10 Hunger, -10 Energy)
+   a. 🏛 Kampus
+      • Belajar (+10 Knowledge, -10 Energy)
+      • Ngumpul sama teman (+5 Happiness, -5 Energy)
+   b. 🏠 Kost/Rumah
+      • Tidur (+30 Energy, -10 Hunger)
+      • Mandi (+10 Hygiene)
+      • Nonton TV (+5 Happiness, -Rp5.000)
+      • Cuci tangan (+5 hygiene)
+   c. 🍛 Kantin
+      • Makan (+20 Hunger, -Rp15.000)
+   d. 🛒 Minimarket
+      • Beli makanan (+20 Hunger, -Rp10.000)
+   e. ☕ Café
+      • Nongkrong (+5 Happiness, -Rp25.000)
+   f. 💼 Tempat Kerja Part-time
+      • Kerja (+Rp100.000, -20 Energy)
+   g. ⛪ Tempat Ibadah
+      • Beribadah (+10 Happiness, +5 Hygiene)
+   h. 🏖 Pantai
+      • Bermain air (+15 Happiness, -10 Energy, -5 Hygiene)
+      • Makan seafood (+20 Hunger, -Rp30.000)
+   i. ⛰ Gunung
+      • Hiking (+10 Happiness, -20 Energy, -10 Hunger)
+      • Camping (+5 Happiness, -Rp50.000)
+   j. 🏞 Danau
+      • Bersantai (+10 Happiness, -5 Energy)
+      • Mancing (+10 Hunger, -10 Energy)
 
 3. Waktu & Status
    • 1 detik RL = 1 menit in-game
