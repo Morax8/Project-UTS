@@ -4,7 +4,8 @@ File Structure:
 │ ├── style.css # Main styles
 │ └── animations.css # Optional animations
 ├── js/
-│ ├── main.js # Game initialization and loop
+| ├── game.js # core game loop
+│ ├── main.js # Game initialization
 │ ├── player.js # Player stats and methods
 │ ├── locations.js # Location definitions and activities
 │ ├── events.js # Random events logic
