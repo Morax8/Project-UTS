@@ -1,3 +1,4 @@
+```
 File Structure:
 ├── index.html # Main game page
 ├── css/
@@ -73,3 +74,4 @@ Ucup harus bertahan selama satu semester dengan mengelola kesehatan, energi, keb
    • "ketemu crazy rich baik hati!" (+Rp250.000)
    • “ikut giveaway” (+Rp,200.000)
    • “Dapat makan gratis abis jumatan” (+30 Hunger, + 10 Happiness)
+```
