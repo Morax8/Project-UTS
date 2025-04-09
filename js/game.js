@@ -13,6 +13,8 @@ const player = {
   money: 500000,
   time: { day: 1, hour: 8, minute: 0 },
   currentLocation: 'rumah',
+  characterWidth: 48,
+  characterHeight: 48,
 };
 
 // === INIT PLAYER NAME ===
@@ -105,8 +107,8 @@ characterImage.src = `assets/images/avatar/${selectedCharacter}.png`;
 
 backgroundImage.src = 'assets/images/locations/rumah.jpg';
 
-const characterWidth = 48;
-const characterHeight = 48;
+const characterWidth = player.characterWidth;
+const characterHeight = player.characterHeight;
 
 let playerX = 300;
 let playerY = 270;
@@ -176,6 +178,7 @@ window.addEventListener('keydown', function (e) {
 // === STARTUP ===
 Promise.all([new Promise((resolve) => (backgroundImage.onload = resolve)), new Promise((resolve) => (characterImage.onload = resolve))]).then(() => {
   renderGame();
+  updateUI(); // Tambahin ini bro!
   setInterval(() => {
     updateTime();
     updateStats();
@@ -184,13 +187,14 @@ Promise.all([new Promise((resolve) => (backgroundImage.onload = resolve)), new P
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  // document.getElementById('btn-masuk').addEventListener('click', () => doActivity('masuk', player, updateUI));
+  document.getElementById('btn-masuk').addEventListener('click', () => doActivity('masuk', player, updateUI));
   document.getElementById('btn-tidur').addEventListener('click', () => doActivity('tidur', player, updateUI));
   document.getElementById('btn-makan').addEventListener('click', () => doActivity('makan', player, updateUI));
   document.getElementById('btn-belajar').addEventListener('click', () => doActivity('belajar', player, updateUI));
   document.getElementById('btn-mandi').addEventListener('click', () => doActivity('mandi', player, updateUI));
   document.getElementById('btn-main').addEventListener('click', () => doActivity('mainGame', player, updateUI));
   document.getElementById('btn-keluar').addEventListener('click', () => doActivity('keluar', player, updateUI));
+  document.getElementById('btn-pergi').addEventListener('click', () => doActivity('pergi', player, updateUI));
 });
 
 export function playGifTransition(callback) {
