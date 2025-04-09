@@ -68,6 +68,8 @@ function changeCharacter(direction) {
 function selectCharacter(event, character) {
   // This function can be kept for potential future use or removed
   selectedCharacter = character;
+  localStorage.setItem('selectedCharacter', character); // Save selected character to localStorage
+
   const nextBtn = document.getElementById('characterNextBtn');
   nextBtn.disabled = false;
   nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
@@ -93,105 +95,3 @@ function startGame() {
     }
   });
 }
-
-// // Validate name input
-// function validateName() {
-//   const nameInput = document.getElementById('playerName');
-//   const name = nameInput.value.trim();
-
-//   if (name.length < 2) {
-//     // Show error using SweetAlert2
-//     Swal.fire({
-//       title: 'Oops!',
-//       text: 'Please enter a name with at least 2 characters',
-//       icon: 'error',
-//       confirmButtonColor: '#10b981',
-//     });
-//     return;
-//   }
-
-//   // Show character selection section
-//   document.getElementById('nameSection').classList.add('hidden');
-//   document.getElementById('characterSection').classList.remove('hidden');
-
-//   // Initialize character selection
-//   initCharacterSelection();
-// }
-
-// // Initialize character selection carousel
-// function initCharacterSelection() {
-//   // Make first character slide visible
-//   const slides = document.querySelectorAll('.character-slide');
-//   slides.forEach((slide, index) => {
-//     if (index === 0) {
-//       slide.classList.remove('hidden');
-//     } else {
-//       slide.classList.add('hidden');
-//     }
-//   });
-
-//   // Add click event listeners to each character
-//   slides.forEach((slide) => {
-//     slide.addEventListener('click', function () {
-//       selectCharacter(this.dataset.character);
-//     });
-//   });
-// }
-
-// // Change character in carousel
-// function changeCharacter(direction) {
-//   // Get all slides
-//   const slides = document.querySelectorAll('.character-slide');
-
-//   // Hide current slide
-//   slides[currentCharacterIndex].classList.add('hidden');
-
-//   // Update index
-//   currentCharacterIndex = (currentCharacterIndex + direction + slides.length) % slides.length;
-
-//   // Show new slide
-//   slides[currentCharacterIndex].classList.remove('hidden');
-
-//   // Reset selection
-//   selectCharacter(characters[currentCharacterIndex]);
-// }
-
-// // Select character
-// function selectCharacter(character) {
-//   // Update selected character
-//   selectedCharacter = character;
-
-//   // Update button state
-//   const nextButton = document.getElementById('characterNextBtn');
-//   nextButton.disabled = false;
-//   nextButton.classList.remove('opacity-50', 'cursor-not-allowed');
-//   nextButton.classList.add('hover:scale-105');
-
-//   // Highlight selected character
-//   const slides = document.querySelectorAll('.character-slide');
-//   slides.forEach((slide) => {
-//     if (slide.dataset.character === character) {
-//       slide.classList.add('ring-2', 'ring-green-400', 'bg-white/10', 'rounded-lg');
-//     } else {
-//       slide.classList.remove('ring-2', 'ring-green-400', 'bg-white/10', 'rounded-lg');
-//     }
-//   });
-// }
-
-// // Show game rules section
-
-// //Start game
-// function startGame() {
-//   const playerName = document.getElementById('playerName').value.trim();
-
-//   // Save player information to localStorage or sessionStorage
-//   const playerInfo = {
-//     name: playerName,
-//     character: selectedCharacter,
-//   };
-
-//   localStorage.setItem('playerInfo', JSON.stringify(playerInfo));
-
-//   // Redirect to game page
-//   window.location.href = 'games.html';
-// }
