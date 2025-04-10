@@ -156,6 +156,7 @@ export const activityEffects = {
     condition: (player) => player.energy >= 30 && player.hunger >= 20,
     effect: (player) => {
       playGifAnimation('bermainGif', 1500, () => {
+        player.money -= 50000;
         player.energy = clampStat(player.energy - 25);
         player.hunger = clampStat(player.hunger - 15);
         player.happiness = clampStat(player.happiness + 25);
@@ -174,6 +175,7 @@ export const activityEffects = {
     condition: (player) => player.energy >= 20 && player.hunger >= 20,
     effect: (player) => {
       playGifAnimation('mancingGif', 1500, () => {
+        player.money -= 50000;
         player.energy = clampStat(player.energy - 20);
         player.hunger = clampStat(player.hunger - 30);
         player.happiness = clampStat(player.happiness + 30);
@@ -215,6 +217,7 @@ export const activityEffects = {
         player.happiness = clampStat(player.happiness + 50);
         player.energy = clampStat(player.energy - 25);
         player.hunger = clampStat(player.hunger - 15);
+        player.money -= 50000;
         player.time.hour += 3;
       });
     },
