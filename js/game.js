@@ -115,21 +115,24 @@ let playerY = 270;
 let facingLeft = false;
 
 // ⬇️ DRAW FUNCTION
-export function drawCharacter() {
+export function drawCharacter(player) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
   const x = playerX;
   const y = playerY;
 
+  const width = player.characterWidth;
+  const height = player.characterHeight;
+
   if (facingLeft) {
     ctx.save();
-    ctx.translate(x + characterWidth, y);
+    ctx.translate(x + width, y);
     ctx.scale(-1, 1);
-    ctx.drawImage(characterImage, 0, 0, characterImage.width, characterImage.height, 0, 0, characterWidth, characterHeight);
+    ctx.drawImage(characterImage, 0, 0, characterImage.width, characterImage.height, 0, 0, width, height);
     ctx.restore();
   } else {
-    ctx.drawImage(characterImage, x, y, characterWidth, characterHeight);
+    ctx.drawImage(characterImage, x, y, width, height);
   }
 }
 
@@ -137,12 +140,12 @@ export function drawCharacter() {
 export function setBackground(src) {
   backgroundImage.src = src;
   backgroundImage.onload = () => {
-    drawCharacter();
+    drawCharacter(player);
   };
 }
 
 function renderGame() {
-  drawCharacter();
+  drawCharacter(player);
 }
 
 // === KEYBOARD CONTROLS ===
@@ -195,17 +198,33 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('btn-main').addEventListener('click', () => doActivity('mainGame', player, updateUI));
   document.getElementById('btn-keluar').addEventListener('click', () => doActivity('keluar', player, updateUI));
   document.getElementById('btn-pergi').addEventListener('click', () => doActivity('pergi', player, updateUI));
+  document.getElementById('btn-berenang').addEventListener('click', () => doActivity('berenang', player, updateUI));
+  document.getElementById('btn-mancing').addEventListener('click', () => doActivity('mancing', player, updateUI));
+  document.getElementById('btn-camping').addEventListener('click', () => doActivity('camping', player, updateUI));
+  document.getElementById('btn-kerja').addEventListener('click', () => doActivity('kerja', player, updateUI));
 });
 
 export function playGifTransition(callback) {
   const gif = document.getElementById('transitionGif');
-  gif.style.display = 'block';
 
-  // Reset GIF (biar tiap kali muncul dari awal)
+  // Reset GIF source biar selalu dari awal
+  gif.style.display = 'block';
+  gif.style.opacity = '0';
   gif.src = gif.src;
 
+  // Fade in
+  requestAnimationFrame(() => {
+    gif.style.opacity = '1';
+  });
+
+  // Setelah durasi gif selesai, fade out
   setTimeout(() => {
-    gif.style.display = 'none';
-    if (callback) callback();
-  }, 2000); // durasi GIF lo, ganti kalau beda
+    gif.style.opacity = '0';
+
+    // Tunggu efek fade out selesai, baru hide
+    setTimeout(() => {
+      gif.style.display = 'none';
+      if (callback) callback();
+    }, 500); // durasi fade out harus sama kayak transition (0.5s)
+  }, 2000); // durasi GIF sebelum mulai fade out
 }
