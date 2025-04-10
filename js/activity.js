@@ -12,15 +12,21 @@ export function doActivity(type, player, updateUI) {
     return;
   }
 
-  if (activity.location && activity.location !== currentLocation) {
-    Swal.fire({
-      icon: 'warning',
-      title: 'Oops!',
-      text: 'Aktivitas ini cuma bisa dilakukan di ' + activity.location,
-    });
-    return;
+  // Cek lokasi yang valid
+  if (activity.location) {
+    const allowed = Array.isArray(activity.location) ? activity.location.includes(currentLocation) : activity.location === currentLocation;
+
+    if (!allowed) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Oops!',
+        text: 'Aktivitas ini cuma bisa dilakukan di ' + (Array.isArray(activity.location) ? activity.location.join(', ') : activity.location),
+      });
+      return;
+    }
   }
 
+  // Cek kondisi khusus
   if (activity.condition && !activity.condition(player)) {
     Swal.fire({
       icon: 'warning',
@@ -30,6 +36,20 @@ export function doActivity(type, player, updateUI) {
     return;
   }
 
-  activity.effect(player, changeLocation, updateUI, playGifTransition);
-  updateUI(); // ini update UI setelah efek dijalankan
+  // // Play animation if available
+  // if (activity.animationId) {
+  //   playGifAnimation(activity.animationId, activity.animationDuration, () => {
+  //     activity.effect(player);
+  //     updateUI();
+  //   });
+  // } else {
+  //   activity.effect(player);
+  //   updateUI();
+  // }
+
+  // Eksekusi aktivitas
+  console.log(`▶️ Melakukan aktivitas: ${type} di lokasi ${currentLocation}`);
+  Promise.resolve(activity.effect(player, changeLocation, updateUI, playGifTransition)).then(() => {
+    updateUI();
+  });
 }
