@@ -20,7 +20,7 @@ export const activityEffects = {
     location: 'dlmrumah',
     condition: (player) => player.energy < 100,
     effect: (player) => {
-      playGifAnimation('tidurGif', 2500, () => {
+      playGifAnimation('tidurGif', 1500, () => {
         player.energy = clampStat(player.energy + 40);
         player.time.hour += 6;
         player.hunger = clampStat(player.hunger - 10);
@@ -35,11 +35,9 @@ export const activityEffects = {
   },
   makan: {
     location: 'dlmrumah',
-    animationId: 'makanGif', // <-- Tambahin ini
-    animationDuration: 2500, // <-- Tambahin durasi
     condition: (player) => player.money >= 20000,
     effect: (player) => {
-      playGifAnimation('makanGif', 2500, () => {
+      playGifAnimation('makanGif', 1500, () => {
         player.hunger = clampStat(player.hunger + 40);
         player.money -= 20000;
         player.hygiene = clampStat(player.hygiene - 2);
@@ -58,7 +56,7 @@ export const activityEffects = {
     location: 'dlmrumah',
     condition: (player) => player.hygiene < 100 && player.energy >= 15,
     effect: (player) => {
-      playGifAnimation('mandiGif', 2500, () => {
+      playGifAnimation('mandiGif', 1500, () => {
         player.hygiene = clampStat(player.hygiene + 50);
         player.energy = clampStat(player.energy - 5);
         player.time.hour += 1;
@@ -73,7 +71,7 @@ export const activityEffects = {
     location: 'dlmrumah',
     condition: (player) => player.energy >= 10 && player.hunger >= 10,
     effect: (player) => {
-      playGifAnimation('mainGif', 2500, () => {
+      playGifAnimation('mainGif', 1500, () => {
         player.happiness = clampStat(player.happiness + 30);
         player.energy = clampStat(player.energy - 10);
         player.hunger = clampStat(player.hunger - 10);
@@ -91,7 +89,7 @@ export const activityEffects = {
     location: ['dlmrumah', 'kampus'],
     condition: (player) => player.energy >= 20 && player.hunger >= 20,
     effect: (player) => {
-      playGifAnimation('belajarGif', 2500, () => {
+      playGifAnimation('belajarGif', 1500, () => {
         player.knowledge = clampStat(player.knowledge + 20);
         player.energy = clampStat(player.energy - 15);
         player.hunger = clampStat(player.hunger - 10);
@@ -153,11 +151,11 @@ export const activityEffects = {
   },
 
   // di pantai
-  berenang: {
+  bermain: {
     location: 'pantai',
     condition: (player) => player.energy >= 30 && player.hunger >= 20,
     effect: (player) => {
-      playGifAnimation('berenangGif', 2500, () => {
+      playGifAnimation('bermainGif', 1500, () => {
         player.energy = clampStat(player.energy - 25);
         player.hunger = clampStat(player.hunger - 15);
         player.happiness = clampStat(player.happiness + 25);
@@ -166,7 +164,7 @@ export const activityEffects = {
       });
     },
     failMessage: {
-      title: 'berenang gak bisa',
+      title: 'Bermain Gak Bisa',
       text: 'Kamu lapar/energi kamu kurang',
     },
   },
@@ -175,7 +173,7 @@ export const activityEffects = {
     location: 'pantai',
     condition: (player) => player.energy >= 20 && player.hunger >= 20,
     effect: (player) => {
-      playGifAnimation('mancingGif', 2500, () => {
+      playGifAnimation('mancingGif', 1500, () => {
         player.energy = clampStat(player.energy - 20);
         player.hunger = clampStat(player.hunger - 30);
         player.happiness = clampStat(player.happiness + 30);
@@ -194,8 +192,8 @@ export const activityEffects = {
     location: 'kantor',
     condition: (player) => player.energy >= 20 && player.hunger >= 20,
     effect: (player) => {
-      playGifAnimation('kerjaGif', 2500, () => {
-        player.money += 100000;
+      playGifAnimation('kerjaGif', 1500, () => {
+        player.money += 150000;
         player.energy = clampStat(player.energy - 20);
         player.hunger = clampStat(player.hunger - 10);
         player.happiness = clampStat(player.happiness - 20);
@@ -213,7 +211,7 @@ export const activityEffects = {
     location: 'gunung',
     condition: (player) => player.energy >= 30 && player.hunger >= 20,
     effect: (player) => {
-      playGifAnimation('campingGif', 2500, () => {
+      playGifAnimation('campingGif', 1500, () => {
         player.happiness = clampStat(player.happiness + 50);
         player.energy = clampStat(player.energy - 25);
         player.hunger = clampStat(player.hunger - 15);

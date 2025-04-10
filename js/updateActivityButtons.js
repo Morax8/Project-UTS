@@ -1,6 +1,6 @@
 export function updateActivityButtons(currentLocation) {
   const dalamRumah = ['tidur', 'makan', 'mandi', 'main', 'belajar', 'keluar'];
-  const diPantai = ['berenang', 'mancing', 'pergi']; // misalnya lo mau ada berenang
+  const diPantai = ['bermain', 'mancing', 'pergi'];
   const diKampus = ['belajar', 'pergi']; // misalnya belanja di kampus
   const diKantor = ['kerja', 'pergi']; // misalnya kerja di kantor
   const diGunung = ['camping', 'pergi']; // misalnya mancing di gunung
