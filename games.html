@@ -105,11 +105,23 @@
       </div>
 
       <!-- Game Canvas + Activity Buttons -->
-      <div class="flex justify-center gap-6 mb-6">
-        <canvas id="gameCanvas" width="640" height="480" class="bg-gray-800 rounded-lg shadow-md"></canvas>
-        <img id="transitionGif" src="assets/images/transitions/mobil.gif" style="position: absolute; top: 0; left: 0; width: 800px; height: 600px; display: none; z-index: 10" />
+      <!-- Gif transition taruh di luar flex -->
+      <img id="transitionGif" src="assets/images/transitions/mobil.gif" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: 9999; display: none" />
+      <img id="makanGif" src="assets/images/Animations/makan.gif" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: 9999; display: none" />
+      <img id="mainGif" src="assets/images/Animations/mainGame.gif" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: 9999; display: none" />
+      <img id="tidurGif" src="assets/images/Animations/tidur.gif" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: 9999; display: none" />
+      <img id="mandiGif" src="assets/images/Animations/mandi.gif" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: 9999; display: none" />
+      <img id="belajarGif" src="assets/images/Animations/belajar.gif" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: 9999; display: none" />
+      <img id="campingGif" src="assets/images/Animations/camping.gif" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: 9999; display: none" />
+      <img id="berenangGif" src="assets/images/Animations/berenang.gif" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: 9999; display: none" />
+      <img id="mancingGif" src="assets/images/Animations/mancing.gif" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: 9999; display: none" />
 
-        <!-- Activity Buttons -->
+      <!-- Flex Container -->
+      <div class="flex justify-center gap-6 mb-6">
+        <!-- Canvas -->
+        <canvas id="gameCanvas" width="640" height="480" class="bg-gray-800 rounded-lg shadow-md z-10"></canvas>
+
+        <!-- Tombol Aktifitas -->
         <div class="flex flex-col gap-3">
           <button id="btn-masuk" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md shadow" data-activity="masuk">🚪 Masuk Rumah</button>
           <button id="btn-tidur" class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-md shadow" data-activity="tidur">😴 Tidur</button>
@@ -119,6 +131,9 @@
           <button id="btn-belajar" class="bg-yellow-500 hover:bg-yellow-600 px-4 py-2 rounded-md shadow" data-activity="belajar">📚 Belajar</button>
           <button id="btn-keluar" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md shadow" data-activity="keluar">🚪 Keluar Rumah</button>
           <button id="btn-pergi" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md shadow" data-activity="pergi">🚪 pergi</button>
+          <button id="btn-berenang" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md shadow" data-activity="berenang">🏊‍♂️ Berenang</button>
+          <button id="btn-mancing" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-md shadow" data-activity="mancing">🎣 Mancing</button>
+          <button id="btn-kerja" class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-md shadow" data-activity="kerja">💼 Kerja</button>
         </div>
       </div>
     </div>
